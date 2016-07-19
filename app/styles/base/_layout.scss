@@ -1,0 +1,19 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body > section {
+  @include row();
+  > h3 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: $title-separator-space;
+  }
+  margin: 3em 0 5em;
+}

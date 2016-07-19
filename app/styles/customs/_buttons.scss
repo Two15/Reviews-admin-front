@@ -1,0 +1,23 @@
+#{$all-buttons} {
+  &.button-green {
+    $main: $light-green;
+    $second: #fff;
+    color: $main;
+    background-color: $second;
+    &.button-plain {
+      color: $second;
+      background-color: $main;
+    }
+  }
+  &.button-red {
+    $main: $light-red;
+    $second: #fff;
+    color: $main;
+    background-color: $second;
+    &.button-plain {
+      color: $second;
+      background-color: $main;
+    }
+  }
+}
+

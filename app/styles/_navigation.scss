@@ -1,0 +1,69 @@
+nav.navigation {
+  $background-color: white;
+  $dark-gray: #333 !default;
+  $large-screen: 53.75em !default;
+  $navigation-padding: 1em;
+  $navigation-color: $dark-gray;
+
+  $title-padding-top: 0.8em;
+
+  @include media($mobile) {
+    display: none;
+  }
+
+  position: fixed;
+  margin-top: -1 * $navigation-height;
+  @include outer-container;
+
+  background-color: white;
+  min-height: $navigation-height;
+  width: 100%;
+  z-index: 999;
+
+  .navigation-wrapper {
+    @include clearfix;
+    position: relative;
+    z-index: 9999;
+  }
+
+  .logo {
+    float: left;
+    max-height: $navigation-height;
+    padding-left: $navigation-padding;
+    padding-right: 2em;
+
+    h1 {
+      color: $navigation-color;
+      font-weight: bold;
+      padding: $title-padding-top 0;
+    }
+  }
+
+  // Mobile view
+
+  // Elements on the far right
+
+  .navigation-tools {
+    @include clearfix;
+    display: block;
+    height: $navigation-height;
+    padding: 0.6em $navigation-padding 0;
+    float: right;
+    .button-wrapper {
+      position: relative;
+    }
+    .button-wrapper:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 50%;
+      left: 50%;
+      border-bottom: 2px solid $green;
+      @include transition(left .3s $ease-in-out-back, right .3s $ease-in-out-back);
+    }
+    .button-wrapper:hover:after {
+      right: 1em;
+      left: 1em;
+    }
+  }
+}

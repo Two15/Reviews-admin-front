@@ -1,0 +1,19 @@
+<div class="navigation-tools">
+  <div class="button-wrapper">
+  {{#if session.isAuthenticated}}
+    <input
+      class="button-red"
+      type="button"
+      value="Logout"
+      {{action (route-action 'logout')}}
+    >
+  {{else}}
+    <input
+      class="button-green"
+      type="button"
+      value="Login"
+      {{action (route-action 'login')}}
+    >
+  {{/if}}
+  </div>
+</div>

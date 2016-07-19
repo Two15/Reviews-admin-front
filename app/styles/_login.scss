@@ -1,0 +1,46 @@
+section.login {
+  height: calc(100vh - #{$navigation-height});
+  @include display(flex);
+  @include align-items(center);
+  @include flex-direction(column);
+  @include justify-content(center);
+  > h3 {
+    font-size: 1.1em;
+    margin-bottom: 1.5em;
+  }
+  > a {
+    @extend a.button.button-green.button-plain;
+    width: 250px;
+    // @include media($mobile) {
+    //   @include span-columns(1);
+    //   border-radius: 3px;
+    //   margin: 0 0.5em;
+    //   width: calc(100% - 1em);
+    // }
+    font-size: 1.4em;
+    text-align: center;
+    font-weight: 400;
+    transition-property: all;
+    cursor: pointer;
+
+    border-radius: 1px;
+    box-shadow: none;
+    padding: .7em 0;
+    background-color: $light-green;
+    color: lighten($green, 58%);
+    @include transition(all .4s $ease-in-out-back, color .3s ease-in-out, background-color .3s ease-in-out);
+    &:hover {
+      color: $green;
+      background-color: transparentize($light-green, .6);
+      border-radius: 50%;
+      padding: calc(125px - .7em) 0;
+      box-shadow:
+        0 0 1px 0px $green,
+        0 0 0px 7px white,
+        0 0 2px 8px transparentize($green, .5),
+        0 0 0px 16px white,
+        0 0 2px 17px transparentize($green, .7),
+        0 0 0px 27px white, 0 0 2px 28px transparentize($green, .85);
+    }
+  }
+}

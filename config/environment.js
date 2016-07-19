@@ -16,10 +16,17 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+    'ember-simple-auth': {
+      routeAfterAuthentication: 'protected',
+      routeIfAlreadyAuthenticated: 'protected'
     }
   };
 
   if (environment === 'development') {
+    ENV.contentSecurityPolicy = {
+      'connect-src': ["'self'", "http://localhost:4000"]
+    };
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -40,7 +47,10 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.contentSecurityPolicyHeader = 'Content-Security-Policy';
+    ENV.contentSecurityPolicy = {
+      'connect-src': ["'self'", "http://localhost:4000"]
+    };
   }
 
   return ENV;
