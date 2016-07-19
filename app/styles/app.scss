@@ -6,6 +6,7 @@
 @import "base/base";
 
 @import "customs/buttons";
+@import "customs/rounded_hero";
 
 @import "navigation";
 @import "login";
@@ -23,5 +24,56 @@ body {
   @include media($mobile) {
     padding-top: 0;
   }
+}
 
+.organizations {
+  padding-top: 20px;
+  @include row();
+  > .org-wrap {
+    @include span-columns(4);
+    > div.ember-view {
+      padding: 1em 1em;
+    }
+     h2 {
+      border-bottom: 1px solid #666;
+      padding-bottom: 0.7em;
+    }
+    td {
+      border-bottom: 0;
+    }
+    .wrap-table {
+      padding-left: .5em;
+    }
+    td:first-child {
+      width: 40px;
+    }
+    td:last-child {
+      padding-left: .75em;
+    }
+  }
+  > .repo-wrap {
+    @include span-columns(8);
+    > div.ember-view {
+      padding: 1em 1em;
+    }
+     h2 {
+      border-bottom: 1px solid #666;
+      padding-bottom: 0.7em;
+    }
+    .wrap-table {
+      padding-left: .4em;
+    }
+    td {
+      border-bottom: 0;
+    }
+    .wrap-table {
+      padding-left: .5em;
+    }
+    td:first-child {
+      width: 40px;
+    }
+    td:last-child {
+      padding-left: .75em;
+    }
+  }
 }

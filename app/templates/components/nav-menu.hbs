@@ -1,19 +1,21 @@
 <div class="navigation-tools">
-  <div class="button-wrapper">
   {{#if session.isAuthenticated}}
+  <div class="button-highlight -red">
     <input
       class="button-red"
       type="button"
       value="Logout"
       {{action (route-action 'logout')}}
     >
+  </div>
   {{else}}
+  <div class="button-highlight">
     <input
       class="button-green"
       type="button"
       value="Login"
       {{action (route-action 'login')}}
     >
-  {{/if}}
   </div>
+  {{/if}}
 </div>

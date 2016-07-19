@@ -1,0 +1,44 @@
+@mixin rounded_hero {
+  $width: 250px;
+  $padding: .7em;
+  $box-height: 30px; // This is unused in the actual box-shadow calculations
+  @extend a.button.button-green.button-plain;
+  width: $width;
+  // @include media($mobile) {
+    //   @include span-columns(1);
+    //   border-radius: 3px;
+    //   margin: 0 0.5em;
+    //   width: calc(100% - 1em);
+  // }
+  font-size: 1.4em;
+  text-align: center;
+  font-weight: 400;
+  transition-property: all;
+  cursor: pointer;
+
+  border-radius: 1px;
+  box-shadow: none;
+  padding: $padding 0;
+  background-color: $light-green;
+  color: lighten($green, 58%);
+  @include transition(all .4s $ease-out-back, color .3s ease-in-out, background-color .3s ease-in-out);
+  margin-top: calc(#{$width/2} - #{ 2 * $padding});
+  margin-bottom: calc(#{$width/2} - #{2 * $padding});
+  &:hover {
+    color: $green;
+    background-color: transparentize($light-green, .6);
+    border-radius: 50%;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: calc(#{$width/2} - #{$padding}) 0;
+    box-shadow:
+    0 0 1px 0px $green,
+    0 0 0px 7px white,
+    0 0 2px 8px transparentize($green, .5),
+    0 0 0px 16px white,
+    0 0 2px 17px transparentize($green, .7),
+    0 0 0px 27px white,
+    0 0 2px 28px transparentize($green, .85);
+  }
+}
+

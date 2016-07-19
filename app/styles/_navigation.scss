@@ -49,21 +49,9 @@ nav.navigation {
     height: $navigation-height;
     padding: 0.6em $navigation-padding 0;
     float: right;
-    .button-wrapper {
-      position: relative;
-    }
-    .button-wrapper:after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      right: 50%;
-      left: 50%;
-      border-bottom: 2px solid $green;
-      @include transition(left .3s $ease-in-out-back, right .3s $ease-in-out-back);
-    }
-    .button-wrapper:hover:after {
-      right: 1em;
-      left: 1em;
+    .button-highlight:hover:after {
+      right: $navigation-padding;
+      left: $navigation-padding;
     }
   }
 }

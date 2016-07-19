@@ -1,3 +1,22 @@
+.button-highlight {
+  position: relative;
+  &.-red:after {
+    border-bottom: 2px solid $red;
+  }
+  &:after, &.-green:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    left: 50%;
+    @include transition(left .3s $ease-in-out-back, right .3s $ease-in-out-back);
+    border-bottom: 2px solid $green;
+  }
+  &:hover:after {
+    right: 0;
+    left: 0;
+  }
+}
 #{$all-buttons} {
   &.button-green {
     $main: $light-green;
