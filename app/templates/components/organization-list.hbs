@@ -1,6 +1,10 @@
 <h2>Select an organization</h2>
 <div class="wrap-table">
   <table>
+    <tr>
+      <td><img src={{me.avatar_url}}></td>
+      <td>{{me.name}}'s repositories</td>
+    </tr>
     {{#if (is-pending orgsPromise)}}
       <div class="loading-spinner"></div>
     {{/if}}

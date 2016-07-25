@@ -1,9 +1,15 @@
 import Ember from 'ember';
 
-const { Component, inject: { service } } = Ember;
+const {
+  Component,
+  computed: { reads },
+  inject: { service }
+} = Ember;
 
 export default Component.extend({
   ajax: service(),
+  session: service(),
+  me: reads('session.data.authenticated.user'),
   orgsPromise: null,
   init() {
     this._super(...arguments);

@@ -48,7 +48,7 @@ nav.navigation {
     @include clearfix;
     display: block;
     height: $navigation-height;
-    padding: 0.6em $navigation-padding 0;
+    padding: 0.6em 0 0;
     float: right;
     .button-highlight:hover:after {
       right: $navigation-padding;
