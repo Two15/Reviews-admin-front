@@ -1,0 +1,14 @@
+<h2>Select an organization</h2>
+<div class="wrap-table">
+  <table>
+    {{#if (is-pending orgsPromise)}}
+      <div class="loading-spinner"></div>
+    {{/if}}
+    {{#each (await orgsPromise) as |org|}}
+    <tr>
+      <td><img src={{org.avatar_url}}></td>
+      <td>{{org.login}}</td>
+    </tr>
+    {{/each}}
+  </table>
+</div>

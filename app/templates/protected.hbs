@@ -1,3 +1,8 @@
-Protected: {{ model.status }}
+<section class="organizations">
+  <div class="org-wrap">
+    {{organization-list}}
+  </div>
+  <div class="repo-wrap">
+  </div>
 {{outlet}}
-<a {{action (route-action 'logout')}}>Logout</a>
+</section>

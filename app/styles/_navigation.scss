@@ -24,6 +24,7 @@ nav.navigation {
     @include clearfix;
     position: relative;
     z-index: 9999;
+    box-shadow: -3px 0px 1px white, 3px 0px 1px white, 0 0 3px black;
   }
 
   .logo {

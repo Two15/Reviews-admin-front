@@ -5,6 +5,7 @@
 
 @import "base/base";
 
+@import "customs/spinner";
 @import "customs/buttons";
 @import "customs/rounded_hero";
 
@@ -34,8 +35,8 @@ body {
     > div.ember-view {
       padding: 1em 1em;
     }
-     h2 {
-      border-bottom: 1px solid #666;
+    h2 {
+      box-shadow: -2px 0px 1px white, 2px 0px 1px white, 0px -2px 1px white, 0 0 2px #666;
       padding-bottom: 0.7em;
     }
     td {
@@ -46,31 +47,9 @@ body {
     }
     td:first-child {
       width: 40px;
-    }
-    td:last-child {
-      padding-left: .75em;
-    }
-  }
-  > .repo-wrap {
-    @include span-columns(8);
-    > div.ember-view {
-      padding: 1em 1em;
-    }
-     h2 {
-      border-bottom: 1px solid #666;
-      padding-bottom: 0.7em;
-    }
-    .wrap-table {
-      padding-left: .4em;
-    }
-    td {
-      border-bottom: 0;
-    }
-    .wrap-table {
-      padding-left: .5em;
-    }
-    td:first-child {
-      width: 40px;
+      > * {
+        vertical-align: middle;
+      }
     }
     td:last-child {
       padding-left: .75em;
