@@ -29,6 +29,6 @@ export default AjaxService.extend({
     return this.request('http://localhost:4000/api/orgs/');
   }),
   orgRepos(orgName) {
-    return this.get('ajax').request(`http://localhost:4000/api/repos/${orgName}`);
+    return this.request(`http://localhost:4000/api/repos/${orgName}`);
   }
 });
