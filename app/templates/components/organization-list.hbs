@@ -1,7 +1,7 @@
 <h2>Select an organization</h2>
 <div class="wrap-table">
   <table>
-    <tr>
+    <tr {{action "select" me}} class={{if (eq selected me.uid) "active"}}>
       <td><img src={{me.avatar_url}}></td>
       <td>{{me.name}}'s repositories</td>
     </tr>
@@ -9,7 +9,7 @@
       <div class="loading-spinner"></div>
     {{/if}}
     {{#each (await orgsPromise) as |org|}}
-    <tr>
+    <tr {{action "select" org}} class={{if (eq selected org.login) "active"}}>
       <td><img src={{org.avatar_url}}></td>
       <td>{{org.login}}</td>
     </tr>

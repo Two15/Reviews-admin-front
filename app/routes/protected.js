@@ -8,6 +8,9 @@ export default Route.extend(AuthenticatedRouteMixin, {
   actions: {
     logout() {
       this.get('session').invalidate();
+    },
+    didSelectOrganization(org) {
+      this.transitionTo('protected.repo', org);
     }
   }
 });

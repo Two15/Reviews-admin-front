@@ -1,0 +1,13 @@
+<div class="wrap-table">
+  <table>
+    {{#if (is-pending repos)}}
+      <div class="loading-spinner"></div>
+    {{/if}}
+    {{#each (await repos) as |repo|}}
+    <tr>
+      <td></td>
+      <td>{{repo.name}}</td>
+    </tr>
+    {{/each}}
+  </table>
+</div>

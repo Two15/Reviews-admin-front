@@ -6,7 +6,9 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('protected', { path: '/' });
+  this.route('protected', { path: '/' }, function() {
+    this.route('repo', { path: '/:repo_name' });
+  });
   this.route('login', function() {
     this.route('response');
   });

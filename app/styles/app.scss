@@ -39,6 +39,9 @@ body {
       box-shadow: -2px 0px 1px white, 2px 0px 1px white, 0px -2px 1px white, 0 0 2px #666;
       padding-bottom: 0.7em;
     }
+    tr.active {
+      background: #999;
+    }
     td {
       border-bottom: 0;
     }

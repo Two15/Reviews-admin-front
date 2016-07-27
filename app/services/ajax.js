@@ -24,5 +24,11 @@ export default AjaxService.extend({
       }
       throw error;
     });
+  },
+  orgs: computed(function() {
+    return this.request('http://localhost:4000/api/orgs/');
+  }),
+  orgRepos(orgName) {
+    return this.get('ajax').request(`http://localhost:4000/api/repos/${orgName}`);
   }
 });
