@@ -1,0 +1,56 @@
+.ember-power-select-search {
+  padding: 0;
+  > .ember-power-select-search-input {
+    border: none;
+    border-bottom: 1px solid #ddd;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 1em .5em;
+    font-size: 1em;
+    line-height: 1em;
+    margin-bottom: 0;
+  }
+}
+
+.ember-power-select-trigger {
+  cursor: pointer;
+  display: flex;
+  height: 3em;
+  &:focus {
+    outline: 0;
+  }
+}
+
+.ember-power-select-placeholder {
+  @extend h2;
+  margin: 0;
+  text-align: center;
+  align-self: center;
+  width: 100%;
+  color: $base-font-color;
+}
+
+.ember-power-select-selected-item {
+  @include display(flex);
+  @include justify-content(flex-start);
+  @include align-items(center);
+  @include flex-direction(row);
+  height: 3em;
+  padding-left: .5em;
+  padding-right: .5em;
+  margin-left: 0;
+  > img {
+    width: 2em;
+    height: 2em;
+  }
+  > .name {
+    line-height: 1em;
+    padding: 1em 0 1em .75em;
+  }
+}
+.ember-power-select-dropdown {
+  li.ember-power-select-option {
+    @extend .ember-power-select-selected-item;
+  }
+}
+

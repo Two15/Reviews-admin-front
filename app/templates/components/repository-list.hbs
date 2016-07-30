@@ -11,6 +11,7 @@
       onchange=(action 'select')
       searchEnabled=(await willEnableSearch)
       as |repo|}}
+        <img src={{repo.avatar_url}}>
         <span class="name">{{repo.full_name}}</span>
     {{/power-select}}
   {{/if}}

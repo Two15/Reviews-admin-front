@@ -3,7 +3,7 @@ import Ember from 'ember';
 const { Component, computed, inject: { service } } = Ember;
 export default Component.extend({
   classNames: ['list', 'repository-list'],
-  searchField: 'name',
+  searchField: 'full_name',
   ajax: service(),
   repos: computed('organization', {
     get() {
