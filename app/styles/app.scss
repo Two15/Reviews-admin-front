@@ -5,6 +5,8 @@
 
 @import "base/base";
 
+@import "ember-power-select";
+
 @import "customs/spinner";
 @import "customs/buttons";
 @import "customs/rounded_hero";
@@ -20,42 +22,84 @@ html, body {
 }
 
 body {
+  $inner-padding: 1em;
   @include outer-container;
   padding-top: $navigation-height;
   @include media($mobile) {
     padding-top: 0;
   }
+  padding-left: $inner-padding;
+  padding-right: $inner-padding;
 }
 
-.organizations {
-  padding-top: 20px;
-  @include row();
-  > .org-wrap {
+.list + .list {
+  padding-top: 0;
+}
+
+.repository-list,
+.organization-list {
+  @include row;
+  padding: 4em 0;
+  > h2 {
+    text-align: center;
+  }
+  > .list {
     @include span-columns(4);
-    > div.ember-view {
-      padding: 1em 1em;
-    }
-    h2 {
-      box-shadow: -2px 0px 1px white, 2px 0px 1px white, 0px -2px 1px white, 0 0 2px #666;
-      padding-bottom: 0.7em;
-    }
-    tr.active {
-      background: #999;
-    }
-    td {
-      border-bottom: 0;
-    }
-    .wrap-table {
-      padding-left: .5em;
-    }
-    td:first-child {
-      width: 40px;
-      > * {
-        vertical-align: middle;
-      }
-    }
-    td:last-child {
-      padding-left: .75em;
-    }
+    @include shift(4);
+  }
+}
+
+.ember-power-select-search {
+  padding: 0;
+  > .ember-power-select-search-input {
+    border: none;
+    border-bottom: 1px solid #ddd;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 1em .5em;
+    font-size: 1em;
+    line-height: 1em;
+    margin-bottom: 0;
+  }
+}
+
+.ember-power-select-trigger {
+  display: flex;
+  height: 3em;
+  &:focus {
+    outline: 0;
+  }
+}
+
+.ember-power-select-placeholder {
+  @extend h2;
+  margin: 0;
+  text-align: center;
+  align-self: center;
+  width: 100%;
+  color: $base-font-color;
+}
+
+.ember-power-select-selected-item {
+  @include display(flex);
+  @include justify-content(flex-start);
+  @include align-items(center);
+  @include flex-direction(row);
+  height: 3em;
+  padding-left: .5em;
+  padding-right: .5em;
+  margin-left: 0;
+  > img {
+    width: 2em;
+    height: 2em;
+  }
+  > .name {
+    line-height: 1em;
+    padding: 1em 0 1em .75em;
+  }
+}
+.ember-power-select-dropdown {
+  li.ember-power-select-option {
+    @extend .ember-power-select-selected-item;
   }
 }

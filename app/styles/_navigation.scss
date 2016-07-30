@@ -2,7 +2,6 @@ nav.navigation {
   $background-color: white;
   $dark-gray: #333 !default;
   $large-screen: 53.75em !default;
-  $navigation-padding: 1em;
   $navigation-color: $dark-gray;
 
   $title-padding-top: 0.8em;
@@ -24,14 +23,11 @@ nav.navigation {
     @include clearfix;
     position: relative;
     z-index: 9999;
-    box-shadow: -3px 0px 1px white, 3px 0px 1px white, 0 0 3px black;
   }
 
   .logo {
     float: left;
     max-height: $navigation-height;
-    padding-left: $navigation-padding;
-    padding-right: 2em;
 
     h1 {
       color: $navigation-color;
@@ -50,9 +46,5 @@ nav.navigation {
     height: $navigation-height;
     padding: 0.6em 0 0;
     float: right;
-    .button-highlight:hover:after {
-      right: $navigation-padding;
-      left: $navigation-padding;
-    }
   }
 }

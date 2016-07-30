@@ -26,5 +26,6 @@ $thickness:  3px; // Odd numbers created a "wobble" effect.
   border: $thickness solid $color;
   border-right-color: transparent;
   border-radius: 50%;
-  display: inline-block;
+  text-align: center;
+  margin: 0 auto;
 }

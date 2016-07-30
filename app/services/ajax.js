@@ -26,7 +26,12 @@ export default AjaxService.extend({
     });
   },
   orgs: computed(function() {
-    return this.request('http://localhost:4000/api/orgs/');
+    return this.request('http://localhost:4000/api/orgs/')
+    .then((res)=> {
+      return res.map(({uid, avatar_url})=> {
+        return { uid, avatar_url, name: uid }
+      });
+    });
   }),
   orgRepos(orgName) {
     return this.request(`http://localhost:4000/api/repos/${orgName}`);

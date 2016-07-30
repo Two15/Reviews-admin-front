@@ -1,13 +1,17 @@
-<div class="wrap-table">
-  <table>
-    {{#if (is-pending repos)}}
-      <div class="loading-spinner"></div>
-    {{/if}}
-    {{#each (await repos) as |repo|}}
-    <tr>
-      <td></td>
-      <td>{{repo.name}}</td>
-    </tr>
-    {{/each}}
-  </table>
+<div class="list">
+  {{#if (is-pending repos)}}
+    <div class="loading-spinner"></div>
+  {{/if}}
+  {{#if (is-fulfilled repos)}}
+    {{#power-select
+      options=repos
+      searchField=searchField
+      searchPlaceholder="Type here to search"
+      placeholder="Select a repository"
+      onchange=(action 'select')
+      searchEnabled=(await willEnableSearch)
+      as |repo|}}
+        <span class="name">{{repo.full_name}}</span>
+    {{/power-select}}
+  {{/if}}
 </div>

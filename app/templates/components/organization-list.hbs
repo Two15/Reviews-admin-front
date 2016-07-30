@@ -1,18 +1,19 @@
-<h2>Select an organization</h2>
-<div class="wrap-table">
-  <table>
-    <tr {{action "select" me}} class={{if (eq selected me.uid) "active"}}>
-      <td><img src={{me.avatar_url}}></td>
-      <td>{{me.name}}'s repositories</td>
-    </tr>
-    {{#if (is-pending orgsPromise)}}
-      <div class="loading-spinner"></div>
-    {{/if}}
-    {{#each (await orgsPromise) as |org|}}
-    <tr {{action "select" org}} class={{if (eq selected org.login) "active"}}>
-      <td><img src={{org.avatar_url}}></td>
-      <td>{{org.login}}</td>
-    </tr>
-    {{/each}}
-  </table>
+<div class="list">
+  {{#if (is-pending allOrgs)}}
+    <div class="loading-spinner"></div>
+  {{/if}}
+  {{#if (is-fulfilled allOrgs)}}
+    {{#power-select
+      options=allOrgs
+      selected=(await selected)
+      searchField=searchField
+      searchPlaceholder="Type here to search"
+      placeholder="Select an organization"
+      onchange=(action 'select')
+      searchEnabled=(await willEnableSearch)
+      as |org|}}
+        <img src={{org.avatar_url}}>
+        <span class="name">{{org.name}}</span>
+    {{/power-select}}
+  {{/if}}
 </div>
