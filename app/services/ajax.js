@@ -7,15 +7,25 @@ const { computed, inject: { service }, set } = Ember;
 export default AjaxService.extend({
   session: service(),
   trustedHosts: ['localhost'],
+  contentType: 'application/json',
   headers: computed({
     get() {
-      let headers = {};
+      let headers = {
+        'Content-Type': this.get('contentType')
+      };
       this.get('session').authorize('authorizer:oauth2', (name, value)=> {
         set(headers, name, value);
       });
       return headers;
     }
   }).volatile(),
+  options(url, hash) {
+    hash = this._super(...arguments);
+    if (typeof hash.data === 'object' && hash.type !== 'GET') {
+      hash.data = JSON.stringify(hash.data);
+    }
+    return hash;
+  },
   request() {
     return this._super(...arguments).catch((error)=> {
       if (isUnauthorizedError(error) && this.get('session.isAuthenticated')) {
@@ -35,5 +45,13 @@ export default AjaxService.extend({
   }),
   orgRepos(orgName) {
     return this.request(`http://localhost:4000/api/repos/${orgName}`);
+  },
+  repositoryStatus({ owner, name }) {
+    return this.request(`http://localhost:4000/api/status/${owner}/${name}`);
+  },
+  enable({ owner, name }) {
+    return this.post(`http://localhost:4000/api/status`, {
+      data: { provider: 'github', owner, name }
+    });
   }
 });

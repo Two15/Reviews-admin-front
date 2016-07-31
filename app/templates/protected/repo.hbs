@@ -1,2 +1,5 @@
 {{organization-list selectedName=model didSelect=(route-action 'didSelectOrganization')}}
-{{repository-list organization=model}}
+{{repository-list organization=model willEdit=(action (mut currentRepo))}}
+{{#if currentRepo}}
+  {{rmc-toggler repository=currentRepo}}
+{{/if}}

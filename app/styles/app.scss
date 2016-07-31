@@ -49,3 +49,14 @@ body {
     @include shift(4);
   }
 }
+
+// only used to enable a repo
+.hero {
+  @include rounded_hero;
+  @include span-columns(4);
+  @include shift(4);
+  padding-left: 2em;
+  padding-right: 2em;
+  margin-top: 0;
+  margin-bottom: 0;
+}

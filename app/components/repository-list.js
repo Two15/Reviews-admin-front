@@ -11,8 +11,9 @@ export default Component.extend({
     }
   }).readOnly(),
   actions: {
-    select() {
-
+    select(repo) {
+      this.set('selected', repo);
+      this.sendAction('willEdit', repo);
     }
   }
 });

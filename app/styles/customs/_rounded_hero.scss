@@ -24,7 +24,7 @@
   @include transition(all .4s $ease-out-back, color .3s ease-in-out, background-color .3s ease-in-out);
   margin-top: calc(#{$width/2} - #{ 2 * $padding});
   margin-bottom: calc(#{$width/2} - #{2 * $padding});
-  &:hover {
+  &.animated:hover {
     color: $green;
     background-color: transparentize($light-green, .6);
     border-radius: 50%;

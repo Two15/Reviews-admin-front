@@ -1,0 +1,6 @@
+{{#if (is-pending status)}}
+  <div class="loading-spinner"></div>
+{{/if}}
+{{#if (await status)}}
+  <a class="hero" {{action 'enable'}}>Enable</a>
+{{/if}}
