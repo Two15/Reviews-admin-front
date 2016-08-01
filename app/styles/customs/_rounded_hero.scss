@@ -3,6 +3,9 @@
   $padding: .7em;
   $box-height: 30px; // This is unused in the actual box-shadow calculations
   @extend a.button.button-green.button-plain;
+  &.red {
+    @extend a.button.button-red.button-plain;
+  }
   width: $width;
   // @include media($mobile) {
     //   @include span-columns(1);
@@ -24,6 +27,12 @@
   @include transition(all .4s $ease-out-back, color .3s ease-in-out, background-color .3s ease-in-out);
   margin-top: calc(#{$width/2} - #{ 2 * $padding});
   margin-bottom: calc(#{$width/2} - #{2 * $padding});
+  &:hover {
+    color: lighten($green, 58%);
+  }
+  &.red:hover {
+    color: lighten($red, 58%);
+  }
   &.animated:hover {
     color: $green;
     background-color: transparentize($light-green, .6);

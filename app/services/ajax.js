@@ -39,7 +39,7 @@ export default AjaxService.extend({
     return this.request('http://localhost:4000/api/orgs/')
     .then((res)=> {
       return res.map(({uid, avatar_url})=> {
-        return { uid, avatar_url, name: uid }
+        return { uid, avatar_url, name: uid };
       });
     });
   }),
@@ -50,8 +50,13 @@ export default AjaxService.extend({
     return this.request(`http://localhost:4000/api/status/${owner}/${name}`);
   },
   enable({ owner, name }) {
-    return this.post(`http://localhost:4000/api/status`, {
-      data: { provider: 'github', owner, name }
+    return this.put(`http://localhost:4000/api/status`, {
+      data: { provider: 'github', owner, name, enabled: true }
+    });
+  },
+  disable({ owner, name }) {
+    return this.put(`http://localhost:4000/api/status`, {
+      data: { provider: 'github', owner, name, enabled: false }
     });
   }
 });

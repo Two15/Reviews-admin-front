@@ -31,6 +31,7 @@ body {
   }
   padding-left: $inner-padding;
   padding-right: $inner-padding;
+  margin-bottom: $navigation-height;
 }
 
 .list + .list {
@@ -59,4 +60,6 @@ body {
   padding-right: 2em;
   margin-top: 0;
   margin-bottom: 0;
+  border-radius: 2px;
+  @include transition(background-color .2s linear);
 }
