@@ -32,7 +32,7 @@ export default Component.extend({
     }
   }),
   willEnableSearch: computed('allOrgs', function() {
-    return this.get('allOrgs').then((orgs)=> orgs.length >= 6)
+    return this.get('allOrgs').then((orgs)=> orgs.length >= 6);
   }),
   actions: {
     select(org) {

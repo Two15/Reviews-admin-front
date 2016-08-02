@@ -4,7 +4,7 @@ const {
   Component,
   computed,
   inject: { service },
-  merge,
+  RSVP: { Promise },
   setProperties
 } = Ember;
 

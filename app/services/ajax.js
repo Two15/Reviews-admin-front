@@ -51,12 +51,12 @@ export default AjaxService.extend({
   },
   enable({ owner, name }) {
     return this.put(`http://localhost:4000/api/status`, {
-      data: { provider: 'github', owner, name, enabled: true }
+      data: { provider: 'github', owner, name }
     });
   },
   disable({ owner, name }) {
-    return this.put(`http://localhost:4000/api/status`, {
-      data: { provider: 'github', owner, name, enabled: false }
+    return this.delete(`http://localhost:4000/api/status`, {
+      data: { provider: 'github', owner, name }
     });
   }
 });
