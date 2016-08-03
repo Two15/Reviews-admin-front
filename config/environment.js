@@ -20,12 +20,6 @@ module.exports = function(environment) {
     'ember-simple-auth': {
       routeAfterAuthentication: 'protected',
       routeIfAlreadyAuthenticated: 'protected'
-    },
-    s3: {
-      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-      bucket: process.env.S3_BUCKET_URI,
-      region: process.env.S3_REGION
     }
   };
 
