@@ -17,6 +17,7 @@ module.exports = function(deployTarget) {
   }
 
   if (deployTarget === 'production') {
+    ENV.build.environment = 'production';
     ENV.s3 = {
       accessKeyId: process.env.AWS_ACCESS_KEY_ID,
       secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
@@ -29,7 +30,11 @@ module.exports = function(deployTarget) {
       bucket: process.env.S3_BUCKET_URI,
       region: process.env.S3_REGION
     };
-    ENV.build.environment = 'production';
+    ENV.cloudfront = {
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+      distribution: process.env.CLOUDFRONT_DISTRIBUTION
+    };
     // configure other plugins for production deploy target here
   }
 
