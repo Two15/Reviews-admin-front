@@ -1,12 +1,13 @@
 import Ember from 'ember';
 import AjaxService from 'ember-ajax/services/ajax';
 import { isUnauthorizedError } from 'ember-ajax/errors';
+import config from '../config/environment';
 
 const { computed, inject: { service }, set } = Ember;
 
 export default AjaxService.extend({
   session: service(),
-  trustedHosts: ['localhost'],
+  trustedHosts: config.API.trustedHosts,
   contentType: 'application/json',
   headers: computed({
     get() {
@@ -36,7 +37,7 @@ export default AjaxService.extend({
     });
   },
   orgs: computed(function() {
-    return this.request('http://localhost:4000/api/orgs/')
+    return this.request(`${config.API.rootEndpoint}/api/orgs/`)
     .then((res)=> {
       return res.map(({uid, avatar_url})=> {
         return { uid, avatar_url, name: uid };
@@ -44,18 +45,18 @@ export default AjaxService.extend({
     });
   }),
   orgRepos(orgName) {
-    return this.request(`http://localhost:4000/api/repos/${orgName}`);
+    return this.request(`${config.API.rootEndpoint}/api/repos/${orgName}`);
   },
   repositoryStatus({ owner, name }) {
-    return this.request(`http://localhost:4000/api/status/${owner}/${name}`);
+    return this.request(`${config.API.rootEndpoint}/api/status/${owner}/${name}`);
   },
   enable({ owner, name }) {
-    return this.put(`http://localhost:4000/api/status`, {
+    return this.put(`${config.API.rootEndpoint}/api/status`, {
       data: { provider: 'github', owner, name }
     });
   },
   disable({ owner, name }) {
-    return this.delete(`http://localhost:4000/api/status`, {
+    return this.delete(`${config.API.rootEndpoint}/api/status`, {
       data: { provider: 'github', owner, name }
     });
   }

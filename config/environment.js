@@ -13,6 +13,10 @@ module.exports = function(environment) {
       }
     },
 
+    API: {
+      trustedHosts: ['localhost'],
+      rootEndpoint: 'http://localhost:4000'
+    },
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
@@ -49,7 +53,12 @@ module.exports = function(environment) {
   if (environment === 'production') {
     ENV.contentSecurityPolicyHeader = 'Content-Security-Policy';
     ENV.contentSecurityPolicy = {
-      'connect-src': ["'self'", "http://localhost:4000"]
+      'connect-src': ["'self'", 'https://review-my-code.herokuapp.com'],
+      'img-src': ["'self'", 'https://avatars.githubusercontent.com']
+    };
+    ENV.API = {
+      trustedHosts: ['review-my-code.herokuapp.com'],
+      rootEndpoint: 'https://review-m-code.herokuapp.com'
     };
   }
 
