@@ -58,7 +58,7 @@ module.exports = function(environment) {
     };
     ENV.API = {
       trustedHosts: ['review-my-code.herokuapp.com'],
-      rootEndpoint: 'https://review-m-code.herokuapp.com'
+      rootEndpoint: 'https://review-my-code.herokuapp.com'
     };
   }
 
