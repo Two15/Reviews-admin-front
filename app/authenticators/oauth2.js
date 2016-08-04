@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import config from '../config/environment';
 import Base from 'ember-simple-auth/authenticators/base';
 
 const {
@@ -10,8 +11,8 @@ const {
 
 export default Base.extend({
   ajax: service(),
-  tokenEndpoint: 'http://localhost:4000/auth/token',
-  invalidationEndpoint: 'http://localhost:4000/auth/logout',
+  tokenEndpoint: `${config.API.rootEndpoint}/auth/token`,
+  invalidationEndpoint: `${config.API.rootEndpoint}/auth/logout`,
   authenticate(data) {
     return this.get('ajax').request(this.get('tokenEndpoint'), { data }).then((resp)=> {
       if (resp.errors) {
