@@ -24,6 +24,11 @@ module.exports = function(environment) {
     'ember-simple-auth': {
       routeAfterAuthentication: 'protected',
       routeIfAlreadyAuthenticated: 'protected'
+    },
+    sentry: {
+      dsn: 'https://09eb7ede884a40f39b84b21713eba290@app.getsentry.com/90884',
+      debug: environment === 'development',
+      development: environment === 'development',
     }
   };
 
@@ -53,8 +58,9 @@ module.exports = function(environment) {
   if (environment === 'production') {
     ENV.contentSecurityPolicyHeader = 'Content-Security-Policy';
     ENV.contentSecurityPolicy = {
-      'connect-src': ["'self'", 'https://review-my-code.herokuapp.com'],
-      'img-src': ["'self'", 'https://avatars.githubusercontent.com']
+      'script-src': ["'self'", "'unsafe-inline'", "'unsafe-eval'", 'cdn.ravenjs.com'],
+      'connect-src': ["'self'", 'app.getsentry.com', 'https://review-my-code.herokuapp.com'],
+      'img-src': ["'self'", 'https://avatars.githubusercontent.com', 'data: app.getsentry.com']
     };
     ENV.API = {
       trustedHosts: ['review-my-code.herokuapp.com'],
