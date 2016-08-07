@@ -35,7 +35,16 @@ module.exports = function(deployTarget) {
       secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
       distribution: process.env.CLOUDFRONT_DISTRIBUTION
     };
-    // configure other plugins for production deploy target here
+    ENV.gzip = {
+      ignorePattern: '**/*.map'
+    };
+    ENV.sentry = {
+      publicUrl: 'https://admin.review.two15.co',
+      sentryUrl: 'https://app.getsentry.com',
+      sentryOrganizationSlug: 'xavier-cambar',
+      sentryProjectSlug: 'reviewmycode-front',
+      sentryApiKey: process.env.SENTRY_API_KEY
+    };
   }
 
   // Note: if you need to build some configuration asynchronously, you can return
