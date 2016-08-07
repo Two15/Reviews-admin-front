@@ -35,9 +35,6 @@ module.exports = function(deployTarget) {
       secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
       distribution: process.env.CLOUDFRONT_DISTRIBUTION
     };
-    ENV.gzip = {
-      ignorePattern: '**/*.map'
-    };
     ENV.sentry = {
       publicUrl: 'https://admin.review.two15.co',
       sentryUrl: 'https://app.getsentry.com',
