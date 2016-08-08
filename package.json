@@ -10,7 +10,9 @@
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "test": "ember test"
+    "test": "ember test",
+    "install": "bower install",
+    "live": "ember deploy production --activate --verbose"
   },
   "repository": "",
   "engines": {

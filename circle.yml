@@ -1,0 +1,13 @@
+machine:
+  node:
+    version:  4.2.2
+dependencies:
+  pre:
+    - npm config set spin false
+    - npm install -g npm bower
+    - npm rebuild node-sass
+deployment:
+  production:
+    branch: master
+    commands:
+      - npm run live
