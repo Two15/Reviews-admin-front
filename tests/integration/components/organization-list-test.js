@@ -6,19 +6,15 @@ moduleForComponent('organization-list', 'Integration | Component | organization 
 });
 
 test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  this.set('mockUser', {
+    uid: '1234',
+    // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
+    avatar_url: 'fake/path.png',
+    // jscs:enable requireCamelCaseOrUpperCaseIdentifiers
+    name: 'my name'
+  });
 
-  this.render(hbs`{{organization-list}}`);
+  this.render(hbs`{{organization-list me=mockUser}}`);
 
   assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#organization-list}}
-      template block text
-    {{/organization-list}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
 });

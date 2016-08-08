@@ -15,11 +15,13 @@ export default Component.extend({
   searchField: 'name',
   allOrgs: computed('ajax.orgs', 'me', {
     get() {
+      // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
       let { uid, avatar_url, name } = this.get('me');
       return this.get('ajax.orgs').then((orgs)=> {
         orgs.unshift({ avatar_url, uid, name: `${name}'s repositories` });
         return orgs;
       });
+      // jscs:enable requireCamelCaseOrUpperCaseIdentifiers
     }
   }).readOnly(),
   selectedName: undefined,

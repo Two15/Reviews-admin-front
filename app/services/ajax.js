@@ -39,9 +39,11 @@ export default AjaxService.extend({
   orgs: computed(function() {
     return this.request(`${config.API.rootEndpoint}/api/orgs/`)
     .then((res)=> {
-      return res.map(({uid, avatar_url})=> {
+      // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
+      return res.map(({ uid, avatar_url })=> {
         return { uid, avatar_url, name: uid };
       });
+      // jscs:enable requireCamelCaseOrUpperCaseIdentifiers
     });
   }),
   orgRepos(orgName) {
