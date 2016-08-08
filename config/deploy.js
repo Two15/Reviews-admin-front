@@ -36,7 +36,7 @@ module.exports = function(deployTarget) {
       distribution: process.env.CLOUDFRONT_DISTRIBUTION
     };
     ENV.sentry = {
-      publicUrl: 'https://admin.review.two15.co',
+      publicUrl: 'http://admin.review.two15.co.s3-website.eu-central-1.amazonaws.com',
       sentryUrl: 'https://app.getsentry.com',
       sentryOrganizationSlug: 'xavier-cambar',
       sentryProjectSlug: 'reviewmycode-front',
