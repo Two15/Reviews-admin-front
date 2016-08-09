@@ -61,5 +61,11 @@ body {
   margin-top: 0;
   margin-bottom: 0;
   border-radius: 2px;
+  height: 3em;
   @include transition(background-color .2s linear);
+
+  .loading-spinner {
+    border-color: lighten($green, 58%);
+    border-right-color: transparent;
+  }
 }

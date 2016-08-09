@@ -3,9 +3,5 @@ $mobile: new-breakpoint(max-width 34em 1);
 
 $all-buttons: join($all-buttons, 'a.button');
 $navigation-height: 60px;
-$green: adjust-hue(desaturate(lighten(green, 10%), 30%), -30);
-$light-green: lighten($green, 8%);
-$red: adjust-hue(desaturate(lighten(red, 10%), 30%), -30);
-$light-red: lighten($red, 8%);
 
 $title-separator-space: 1.5em;

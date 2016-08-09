@@ -1,11 +1,15 @@
-{{#if (is-pending status)}}
-  <div class="loading-spinner"></div>
-{{/if}}
-<a class="hero {{if (get (await status) 'enabled') 'red'}}" {{action 'toggle'}}>
-  {{#if (get (await status) 'enabled')}}
-  Disable
+{{#async-button
+  reset=true
+  class=(concat (if (get (await status) 'enabled') 'red') ' hero')
+  action=(action 'toggle') as |component|}}
+  {{#if (eq component.textState 'pending')}}
+    <div class="loading-spinner"></div>
   {{else}}
-    Enable
+    {{#if (get (await status) 'enabled')}}
+    Disable
+    {{else}}
+      Enable
+    {{/if}}
+    for this repository
   {{/if}}
-  for this repository
-</a>
+{{/async-button}}

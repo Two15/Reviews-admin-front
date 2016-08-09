@@ -22,7 +22,6 @@
   border-radius: 1px;
   box-shadow: none;
   padding: $padding 0;
-  background-color: $light-green;
   color: lighten($green, 58%);
   @include transition(all .4s $ease-out-back, color .3s ease-in-out, background-color .3s ease-in-out);
   margin-top: calc(#{$width/2} - #{ 2 * $padding});
