@@ -2,8 +2,6 @@ import RavenLogger from 'ember-cli-deploy-sentry/services/raven';
 
 export default RavenLogger.extend({
 
-  unhandledPromiseErrorMessage: '',
-
   captureException(/* error */) {
     this._super(...arguments);
   },

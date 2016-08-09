@@ -12,4 +12,15 @@
     {{/if}}
     for this repository
   {{/if}}
+
+  {{#if hasError}}
+    {{#liquid-tether
+      to='enable-repo'
+      target=(concat '#' component.elementId)
+      attachment='bottom center'}}
+      <div class="tooltip warning">
+        It didn't work as expected.
+        Expect a fix very soon.
+      </div> {{/liquid-tether}}
+  {{/if}}
 {{/async-button}}

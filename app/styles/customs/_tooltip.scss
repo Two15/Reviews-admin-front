@@ -1,0 +1,52 @@
+.tooltip {
+  $tooltip-background: white;
+  $tooltip-shadow: 0 2px 2px silver;
+  $tooltip-color: $base-font-color;
+  $tooltip-max-width: 16em;
+  $tooltip-arrow-width: 8px;
+  $tooltip-arrow-distance-from-box: -1.2em;
+
+  position: relative;
+  top: $tooltip-arrow-distance-from-box / 2;
+  background-color: $tooltip-background;
+  background: #fff;
+  border-radius: $base-border-radius;
+  box-shadow: $tooltip-shadow;
+  color: $tooltip-color;
+  font-size: 0.9em; // Make sure you use -webkit-backface-visibility: hidden; on the body element to prevent 1px nudging bugs.
+  line-height: 1.5em;
+  margin: 0 auto;
+  max-width: $tooltip-max-width;
+  padding: 1em;
+  text-align: center;
+
+  &::after {
+    @include position(absolute, null 0);
+    border: $tooltip-arrow-width solid transparent;
+    bottom: $tooltip-arrow-distance-from-box;
+    color: $tooltip-background;
+    content: "▼";
+    font-size: 1.4em;
+    margin-left: -$tooltip-arrow-width;
+    text-align: center;
+    text-shadow: $tooltip-shadow;
+  }
+}
+
+.warning {
+  color: $yellow;
+  border: 1px solid lighten($light-yellow, 5%);
+  background: lighten($light-yellow, 28%);
+}
+
+.tooltip.warning {
+  &:before {
+    content: '⚠ ';
+    top: 2px;
+    position: relative;
+    font-size: 1.3em;
+  }
+  &:after {
+    color: lighten($light-yellow, 28%);
+  }
+}

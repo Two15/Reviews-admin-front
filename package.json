@@ -49,6 +49,7 @@
     "ember-cli-sentry": "2.3.3",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-uglify": "^1.2.0",
+    "ember-concurrency": "0.7.8",
     "ember-export-application-global": "^1.0.5",
     "ember-load-initializers": "^0.5.1",
     "ember-power-select": "1.0.0-beta.4",
@@ -58,6 +59,8 @@
     "ember-simple-auth": "1.1.0",
     "ember-suave": "4.0.0",
     "ember-truth-helpers": "1.2.0",
+    "liquid-fire": "0.24.1",
+    "liquid-tether": "1.1.1",
     "loader.js": "^4.0.1"
   }
 }
