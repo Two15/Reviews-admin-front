@@ -1,10 +1,12 @@
-<div class="list">
+<div class="list" id="{{elementId}}__wrap">
+  {{error-tooltip target=(concat '#' elementId '__wrap') visible=hasError}}
   {{#if (is-pending allOrgs)}}
     <div class="loading-spinner"></div>
   {{/if}}
   {{#if (is-fulfilled allOrgs)}}
     {{#power-select
       options=allOrgs
+      disabled=hasError
       selected=(await selected)
       searchField=searchField
       searchPlaceholder="Type here to search"

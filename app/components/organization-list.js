@@ -13,6 +13,7 @@ export default Component.extend({
   session: service(),
   me: reads('session.data.authenticated.user'),
   searchField: 'name',
+  hasError: false,
   allOrgs: computed('ajax.orgs', 'me', {
     get() {
       // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
@@ -20,7 +21,7 @@ export default Component.extend({
       return this.get('ajax.orgs').then((orgs)=> {
         orgs.unshift({ avatar_url, uid, name: `${name}'s repositories` });
         return orgs;
-      });
+      }, ()=> this.set('hasError', true));
       // jscs:enable requireCamelCaseOrUpperCaseIdentifiers
     }
   }).readOnly(),

@@ -16,6 +16,17 @@
 }
 
 .ember-power-select-trigger {
+  &[aria-disabled=true] {
+    cursor: default;
+  }
+  &[aria-disabled=true]:focus {
+    border-color: $light-gray;
+  }
+  &[aria-disabled=true] > .ember-power-select-placeholder {
+    font-style: italic;
+    color: $medium-gray;
+  }
+  border-color: $light-gray;
   cursor: pointer;
   display: flex;
   height: 3em;
