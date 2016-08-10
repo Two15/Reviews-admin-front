@@ -23,7 +23,7 @@ $base-z-index: 0;
 $blue: #1565c0;
 $green: adjust-hue(desaturate(lighten(green, 10%), 30%), -30);
 $light-green: lighten($green, 8%);
-$red: adjust-hue(desaturate(red, 30%), -30);
+$red: desaturate(lighten(red, 7%), 30%);
 $light-red: lighten($red, 8%);
 $yellow: adjust-hue(desaturate(lighten(yellow, 10%), 30%), -30);
 $light-yellow: lighten($yellow, 8%);
