@@ -25,7 +25,7 @@
     "bourbon-neat": "^1.8.0",
     "broccoli-asset-rev": "^2.4.2",
     "ember-ajax": "^2.0.1",
-    "ember-async-button": "1.0.0",
+    "ember-async-button": "DockYard/ember-async-button#98a1438fa7d8861d82e941b9b62edf5d6f1113ff",
     "ember-cli": "2.6.2",
     "ember-cli-app-version": "^1.0.0",
     "ember-cli-babel": "^5.1.6",

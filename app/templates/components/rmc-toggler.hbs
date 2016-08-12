@@ -1,8 +1,8 @@
 {{#async-button
   reset=true
   class=(concat (if (get (await status) 'enabled') 'red') ' hero')
-  action=(action 'toggle') as |component|}}
-  {{#if (eq component.textState 'pending')}}
+  action=(action 'toggle') as |component state|}}
+  {{#if state.isPending}}
     <div class="loading-spinner"></div>
   {{else}}
     {{#if (get (await status) 'enabled')}}
