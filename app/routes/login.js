@@ -5,9 +5,17 @@ import UnauthenticatedRouteMixin from 'ember-simple-auth/mixins/unauthenticated-
 const { Route } = Ember;
 
 export default Route.extend(UnauthenticatedRouteMixin, {
+  model(params) {
+    if (params.auto) {
+      this.doLogin();
+    }
+  },
+  doLogin() {
+    window.location = `${config.API.rootEndpoint}/auth`;
+  },
   actions: {
     login() {
-      window.location = `${config.API.rootEndpoint}/auth`;
+      this.doLogin();
     }
   }
 });
