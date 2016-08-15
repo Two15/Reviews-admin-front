@@ -1,28 +1,35 @@
 import Ember from 'ember';
 
 const {
+  A,
   Component,
   computed,
   computed: { reads },
+  get,
   inject: { service }
 } = Ember;
 
 export default Component.extend({
   classNames: ['list', 'organization-list'],
-  ajax: service(),
+  github: service(),
   session: service(),
   me: reads('session.data.authenticated.user'),
   searchField: 'name',
   hasError: false,
   allOrgs: computed('ajax.orgs', 'me', {
     get() {
-      // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
-      let { uid, avatar_url, name } = this.get('me');
-      return this.get('ajax.orgs').then((orgs)=> {
-        orgs.unshift({ avatar_url, uid, name: `${name}'s repositories` });
-        return orgs;
+      let { uid } = this.get('me');
+      return this.get('github.organizations').then((orgsArray)=> {
+        return orgsArray.sort((a, b)=> {
+          if (get(a, 'uid') === uid) {
+            return -1;
+          }
+          if (get(b, 'uid') === uid) {
+            return 1;
+          }
+          return get(a, 'uid').localeCompare(get(b, 'uid'));
+        });
       }, ()=> this.set('hasError', true));
-      // jscs:enable requireCamelCaseOrUpperCaseIdentifiers
     }
   }).readOnly(),
   selectedName: undefined,

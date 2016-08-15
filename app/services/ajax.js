@@ -36,19 +36,6 @@ export default AjaxService.extend({
       throw error;
     });
   },
-  orgs: computed(function() {
-    return this.request(`${config.API.rootEndpoint}/api/orgs/`)
-    .then((res)=> {
-      // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
-      return res.map(({ uid, avatar_url })=> {
-        return { uid, avatar_url, name: uid };
-      });
-      // jscs:enable requireCamelCaseOrUpperCaseIdentifiers
-    });
-  }),
-  orgRepos(orgName) {
-    return this.request(`${config.API.rootEndpoint}/api/repos/${orgName}`);
-  },
   repositoryStatus({ owner, name }) {
     return this.request(`${config.API.rootEndpoint}/api/status/${owner}/${name}`);
   },
