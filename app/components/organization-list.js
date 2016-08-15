@@ -1,7 +1,6 @@
 import Ember from 'ember';
 
 const {
-  A,
   Component,
   computed,
   computed: { reads },
