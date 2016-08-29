@@ -1,3 +1,4 @@
+/*global HS */
 import Ember from 'ember';
 import config from '../config/environment';
 import Base from 'ember-simple-auth/authenticators/base';
@@ -8,6 +9,13 @@ const {
   inject: { service },
   RSVP: { resolve, reject }
 } = Ember;
+
+const identifyHS = (data)=> {
+  HS.beacon.ready(()=> HS.beacon.identify(data.user));
+  return data;
+};
+
+const clearHSIdentity = ()=> HS.beacon.reset();
 
 export default Base.extend({
   ajax: service(),
@@ -21,12 +29,15 @@ export default Base.extend({
         return reject(err);
       }
       return resp;
-    });
+    }).then((data)=> identifyHS(data));
   },
   invalidate() {
-    return this.get('ajax').del(this.get('invalidationEndpoint')).finally(()=> true);
+    return this.get('ajax').del(this.get('invalidationEndpoint'))
+      .then(()=> clearHSIdentity())
+      .finally(()=> true);
   },
   restore(data) {
-    return resolve(data);
+    return resolve(data)
+      .then((data)=> identifyHS(data));
   }
 });
