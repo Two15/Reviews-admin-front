@@ -15,6 +15,12 @@ const unknownStatus = computed('repository', {
   }
 });
 
+const knownStatus = computed('repository', {
+  get() {
+    return Promise.resolve(this.get('repository'));
+  }
+});
+
 export default Component.extend({
   ajax: service(),
   raven: service(),
@@ -34,7 +40,7 @@ export default Component.extend({
         .then(({ enabled })=> !!enabled ? 'disable' : 'enable')
         .then((method)=> this.get('ajax')[method](this.get('repository')))
         .then((d)=> setProperties(this.get('repository'), d))
-        .then(()=> this.set('status', computed.reads('repository')))
+        .then(()=> this.set('status', knownStatus))
         .catch((error)=> {
           this.get('willShowErrorInfo').perform();
           this.get('raven').captureException(error);
