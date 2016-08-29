@@ -4,6 +4,7 @@ import config from '../config/environment';
 const {
   A,
   computed,
+  get,
   inject: { service },
   Map: EmberMap,
   Service
@@ -11,6 +12,9 @@ const {
 
 export default Service.extend({
   ajax: service(),
+  clientId: computed(function() {
+    return get(config, 'github.clientId');
+  }).readOnly(),
   _data: computed('ajax', function() {
     return this.get('ajax').request(`${config.API.rootEndpoint}/api/repos`);
   }),

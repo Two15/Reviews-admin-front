@@ -17,5 +17,11 @@
         <img src={{org.avatar_url}}>
         <span class="name">{{org.name}}</span>
     {{/power-select}}
+    <small class="quick-help">
+      Missing an organization?
+      <a target="_blank" href="https://github.com/settings/connections/applications/{{clientId}}">
+        Check the authorizations
+      </a>
+    </small>
   {{/if}}
 </div>

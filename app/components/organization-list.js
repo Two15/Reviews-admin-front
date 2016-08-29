@@ -13,6 +13,7 @@ export default Component.extend({
   github: service(),
   session: service(),
   me: reads('session.data.authenticated.user'),
+  clientId: reads('github.clientId'),
   searchField: 'name',
   hasError: false,
   allOrgs: computed('ajax.orgs', 'me', {

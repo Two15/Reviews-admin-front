@@ -13,6 +13,10 @@ module.exports = function(environment) {
       }
     },
 
+    github: {
+      clientId: process.env.GITHUB_CLIENT_ID
+    },
+
     API: {
       trustedHosts: ['localhost'],
       rootEndpoint: 'http://localhost:4000'

@@ -1,6 +1,11 @@
 import Ember from 'ember';
 
-const { A, Component, computed, inject: { service } } = Ember;
+const {
+  A,
+  Component,
+  computed,
+  inject: { service }
+} = Ember;
 
 export default Component.extend({
   classNames: ['list', 'repository-list'],

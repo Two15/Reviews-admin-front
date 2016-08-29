@@ -2,4 +2,13 @@
 {{repository-list organization=model willEdit=(action (mut currentRepo))}}
 {{#if currentRepo}}
   {{rmc-toggler repository=currentRepo}}
+  <div class="repository-list">
+    <div class="list">
+  <p class="quick-help">
+    <a href="https://review.two15.co/#howto" target="_blank">
+      Read the docs
+    </a>
+  </p>
+    </div>
+  </div>
 {{/if}}
